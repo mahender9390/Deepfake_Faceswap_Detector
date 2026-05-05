@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --bg:          #0a0a0a;
+  --surface:     #111111;
+  --accent:      #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  --fake:        #EF4444;
+  --real:        #22C55E;
+  --text:        #f4f4f5;
+  --muted:       #71717a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 6px; }
+::-webkit-scrollbar-track        { background: var(--bg); }
+::-webkit-scrollbar-thumb        { background: #27272a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: #3f3f46; }
+
+/* ── Glass card ────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Gradient text ─────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 40%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Drop zone drag-over state ─────────────────────────── */
+.dropzone-active {
+  border-color: var(--accent) !important;
+  background: rgba(99, 102, 241, 0.08) !important;
+}
+
+/* ── Tabs ──────────────────────────────────────────────── */
+[data-state="active"].tab-trigger {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* ── Hero glow ─────────────────────────────────────────── */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(99,102,241,0.18), transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Pulse ring ────────────────────────────────────────── */
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.04); }
+}
+.ring-pulse { animation: ring-pulse 2s ease-in-out infinite; }
+
+/* ── Frame bar hover ───────────────────────────────────── */
+.frame-bar:hover { opacity: 1 !important; }
+
+/* ── Shimmer skeleton ──────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #1c1c1f 25%, #27272a 50%, #1c1c1f 75%);
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: 8px;
+}

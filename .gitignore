@@ -1,0 +1,21 @@
+# Node
+node_modules/
+.next/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Env
+.env
+
+# ML Models
+*.pth
+checkpoints_video_v2/
+
+# Data
+training_video/
+
+# Logs
+*.log
