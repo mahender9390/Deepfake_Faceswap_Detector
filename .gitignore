@@ -14,8 +14,5 @@ __pycache__/
 *.pth
 checkpoints_video_v2/
 
-# Data
-training_video/
-
 # Logs
 *.log

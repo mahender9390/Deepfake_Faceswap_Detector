@@ -1,0 +1,38 @@
+project:
+  name: deepfake-video-detector-v2
+  version: "2.0"
+  seed: 42
+
+model:
+  backbone: efficientnet_b4
+  pretrained_image_model: "C:/imagevideo/checkpoints/best_model.pth"
+  feature_dim: 1792
+  d_model: 512
+  nhead: 8
+  transformer_layers: 4
+  dropout: 0.3
+  n_frames: 10
+  image_size: 224
+
+training:
+  epochs: 30
+  batch_size: 4
+  accumulation_steps: 8
+  base_lr: 0.0001
+  backbone_lr: 0.00001
+  weight_decay: 0.0001
+  freeze_epochs: 5
+  patience: 7
+  grad_clip: 1.0
+  mixed_precision: true
+  num_workers: 2
+  pin_memory: true
+  val_split: 0.15
+  test_split: 0.15
+
+paths:
+  data_dir: "C:/imagevideo/data_video"
+  checkpoint_dir: "C:/imagevideo/checkpoints_video_v2"
+  best_model: "C:/imagevideo/checkpoints_video_v2/best_video_model_v2.pth"
+  last_model: "C:/imagevideo/checkpoints_video_v2/last_video_model_v2.pth"
+  log_dir: "C:/imagevideo/logs_video_v2"
